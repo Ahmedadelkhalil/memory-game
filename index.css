@@ -1,0 +1,116 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.container {
+  position: relative;
+  width: 80%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+}
+.start-screen {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.start-screen::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #2196f3b8;
+  top: 0;
+  left: 0;
+}
+.btn {
+  z-index: 3;
+  border: none;
+  width: 150px;
+  padding: 15px;
+  border-radius: 20px;
+  font-weight: bold;
+  text-transform: capitalize;
+  cursor: pointer;
+}
+.player-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 300px;
+  background: #13ff7178;
+  padding: 20px;
+  margin: 20px auto;
+  text-transform: capitalize;
+  font-weight: bold;
+  border-radius: 10px;
+}
+.blocks-container img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+.blocks-container {
+  width: 300px;
+  min-height: 350px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  gap: 6px;
+  perspective: 500px !important;
+}
+.blocks-container.stop-click {
+  pointer-events: none;
+}
+.card {
+  width: 70.5px;
+  height: 80.5px;
+  position: relative;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transition: transform 0.4s;
+  -webkit-transition: transform 0.4s;
+  -moz-transition: transform 0.4s;
+  -ms-transition: transform 0.4s;
+  -o-transition: transform 0.4s;
+}
+.card.flipping,
+.card.matching {
+  transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  -ms-transform: rotateY(180deg);
+  -o-transform: rotateY(180deg);
+}
+.card .face {
+  position: absolute;
+  backface-visibility: hidden !important;
+  -webkit-backface-visibility: hidden !important;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.card .front {
+  font-size: 50px;
+  font-weight: bold;
+  background-color: burlywood;
+}
+.card .back {
+  transform: rotateY(-180deg);
+  -webkit-transform: rotateY(-180deg);
+  -moz-transform: rotateY(-180deg);
+  -ms-transform: rotateY(-180deg);
+  -o-transform: rotateY(-180deg);
+}
